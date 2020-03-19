@@ -7,11 +7,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <AnchorPane fx:id="arena" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="1000.0" style="-fx-background-color: white;">
          <children>
-            <Circle fx:id="blue" fill="#1f62ff" layoutX="339.0" layoutY="253.0"  onMouseDragged="#moveMe" radius="44.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="blue" fill="#1f62ff" layoutX="339.0" layoutY="253.0" onMouseDragged="#moveMe" radius="44.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="red" fill="#ff1f1f" layoutX="721.0" layoutY="253.0" onMouseClicked="#clickRed" radius="44.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="click" fill="#000000" layoutX="0.0" layoutY="0.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
          </children></AnchorPane>
@@ -42,5 +42,6 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <Button layoutX="908.0" layoutY="30.0" mnemonicParsing="false" onAction="#vypisTop10" text="Top10" />
    </children>
 </AnchorPane>
