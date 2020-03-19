@@ -32,33 +32,53 @@ public class Controller {
 
     private int interval;
     private int level;
-    private int time;
+    private float time;
+    private float ciklus;
+    private float setinterval;
+    private boolean run =false;
 
 
     @FXML
     public void countdown(){
-        time=1;
+        run=true;
+        time=0;
+        ciklus=0;
         player1Score.setText("0");
         player2Score.setText("0");
         level=(int)difficultySlider.getValue();
-        int r=50-2*level;
+        int r=53-3*level;
         blue.setRadius(r);
         red.setRadius(r);
         red.setLayoutX(413);
         red.setLayoutY(142);
+        setinterval=(float)r;
+        level=(int)((setinterval/35)*10);
+
+        interval=6*r;
 
 
-        interval = 300;
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            interval--;
-            time++;
-            visibleRed();
-            countdownLabel.setText(""+interval/60+":"+interval%60);
-            System.out.println("idem");
-            System.out.println(""+interval/60+":"+interval%60);
+        countdownLabel.setText("" + interval / 60 + ":" + interval % 60);
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), event -> {
+            ciklus=(float) (ciklus+0.1);
+            time= (float) (time+0.1);
+            System.out.println((int)(ciklus*10));
+            if((int)(ciklus*10)==level){
+                visibleRed();
+                ciklus=0;
+            }
+            System.out.println(time);
+            if((int)(time*10)==10){
+                interval--;
+                countdownLabel.setText("" + interval / 60 + ":" + interval % 60);
+                System.out.println("idem");
+                System.out.println("" + interval / 60 + ":" + interval % 60);
+                time=0;
+            }
         }));
-        timeline.setCycleCount(300);
+        timeline.setCycleCount(interval*10);
         timeline.play();
+        if(interval==0)
+        run = false;
 
     }
 
@@ -82,54 +102,60 @@ public class Controller {
 
     @FXML
     public void moveMe() {
-        final Delta dragDelta = new Delta();
-        blue.setOnMousePressed(new EventHandler<MouseEvent>() {
+        if(run==true) {
+            final Delta dragDelta = new Delta();
+            blue.setOnMousePressed(new EventHandler<MouseEvent>() {
 
 
-            public void handle(MouseEvent mouseEvent) {
-                // record a delta distance for the drag and drop operation.
-                dragDelta.x = blue.getLayoutX() - mouseEvent.getSceneX();
-                dragDelta.y = blue.getLayoutY() - mouseEvent.getSceneY();
-                blue.setCursor(Cursor.MOVE);
-            }
-        });
-        blue.setOnMouseReleased(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent mouseEvent) {
+                    // record a delta distance for the drag and drop operation.
+                    dragDelta.x = blue.getLayoutX() - mouseEvent.getSceneX();
+                    dragDelta.y = blue.getLayoutY() - mouseEvent.getSceneY();
+                    blue.setCursor(Cursor.MOVE);
+                }
+            });
+            blue.setOnMouseReleased(new EventHandler<MouseEvent>() {
 
 
-            public void handle(MouseEvent mouseEvent) {
-                blue.setCursor(Cursor.HAND);
-            }
-        });
-        blue.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent mouseEvent) {
+                    blue.setCursor(Cursor.HAND);
+                }
+            });
+            blue.setOnMouseDragged(new EventHandler<MouseEvent>() {
 
 
-            public void handle(MouseEvent mouseEvent) {
-                if (mouseEvent.getSceneX() + dragDelta.x < 1000 - blue.getRadius() && mouseEvent.getSceneX() + dragDelta.x > 0 + blue.getRadius())
-                    blue.setLayoutX(mouseEvent.getSceneX() + dragDelta.x);
-                if (mouseEvent.getSceneY() + dragDelta.y < 485 - blue.getRadius() && mouseEvent.getSceneY() + dragDelta.y > 0 + blue.getRadius())
-                    blue.setLayoutY(mouseEvent.getSceneY() + dragDelta.y);
-            }
-        });
-        blue.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent mouseEvent) {
+                    if (mouseEvent.getSceneX() + dragDelta.x < 1000 - blue.getRadius() && mouseEvent.getSceneX() + dragDelta.x > 0 + blue.getRadius())
+                        blue.setLayoutX(mouseEvent.getSceneX() + dragDelta.x);
+                    if (mouseEvent.getSceneY() + dragDelta.y < 485 - blue.getRadius() && mouseEvent.getSceneY() + dragDelta.y > 0 + blue.getRadius())
+                        blue.setLayoutY(mouseEvent.getSceneY() + dragDelta.y);
+                }
+            });
+            blue.setOnMouseEntered(new EventHandler<MouseEvent>() {
 
 
-            public void handle(MouseEvent mouseEvent) {
-                blue.setCursor(Cursor.HAND);
-            }
-        });
-
+                public void handle(MouseEvent mouseEvent) {
+                    blue.setCursor(Cursor.HAND);
+                }
+            });
+        }
     }
+
     @FXML
     public void clickRed(){
-        int score = Integer.parseInt(player1Score.getText());
-        score++;
-        player1Score.setText(String.valueOf(score));
+        if (run==true) {
+            int score = Integer.parseInt(player1Score.getText());
+            score++;
+            player1Score.setText(String.valueOf(score));
+        }
     }
 
     @FXML
     public void clickBlue(){
 
-    }
+        }
+
+
 
 
 
