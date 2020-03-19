@@ -11,27 +11,32 @@
    <children>
       <AnchorPane fx:id="arena" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="1000.0" style="-fx-background-color: white;">
          <children>
-            <Circle fx:id="blue" fill="#1f62ff" layoutX="153.0" layoutY="119.0" onMouseClicked="#clickBlue" onMouseDragged="#moveMe" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="red" fill="#ff1f1f" layoutX="413.0" layoutY="142.0" onMouseClicked="#clickRed" radius="44.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="blue" fill="#1f62ff" layoutX="339.0" layoutY="253.0"  onMouseDragged="#moveMe" radius="44.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="red" fill="#ff1f1f" layoutX="721.0" layoutY="253.0" onMouseClicked="#clickRed" radius="44.0" stroke="BLACK" strokeType="INSIDE" />
          </children></AnchorPane>
-      <Button fx:id="newGameBtn" layoutX="24.0" layoutY="33.0" mnemonicParsing="false" onAction="#countdown" text="Nová hra" />
-      <Slider fx:id="difficultySlider" blockIncrement="1.0" layoutX="119.0" layoutY="39.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="122.0" showTickLabels="true" showTickMarks="true" value="1.0" />
-      <Label fx:id="player1Score" layoutX="265.0" layoutY="23.0" prefHeight="32.0" prefWidth="24.0" text="0">
+      <Button fx:id="newGameBtn" layoutX="160.0" layoutY="33.0" mnemonicParsing="false" onAction="#countdown" text="Nová hra" />
+      <Slider fx:id="difficultySlider" blockIncrement="2.0" layoutX="254.0" layoutY="40.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="122.0" showTickLabels="true" showTickMarks="true" value="1.0" />
+      <Label fx:id="player1Score" layoutX="458.0" layoutY="30.0" prefHeight="32.0" prefWidth="24.0" text="0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="player2Score" layoutX="323.0" layoutY="23.0" prefHeight="32.0" prefWidth="24.0" text="0">
+      <Label fx:id="player2Score" layoutX="526.0" layoutY="30.0" prefHeight="32.0" prefWidth="24.0" text="0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="297.0" layoutY="23.0" prefHeight="32.0" prefWidth="5.0" text=":">
+      <Label layoutX="497.0" layoutY="30.0" prefHeight="32.0" prefWidth="5.0" text=":">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="countdownLabel" layoutX="501.0" layoutY="23.0" prefHeight="32.0" prefWidth="43.0" text="5:00">
+      <Label layoutX="21.0" layoutY="4.0" prefHeight="46.0" prefWidth="97.0" text="PIF-PAF" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="countdownLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="46.0" prefHeight="32.0" prefWidth="54.0" text="0:00">
          <font>
             <Font size="22.0" />
          </font>
