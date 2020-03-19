@@ -13,6 +13,7 @@
          <children>
             <Circle fx:id="blue" fill="#1f62ff" layoutX="339.0" layoutY="253.0"  onMouseDragged="#moveMe" radius="44.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="red" fill="#ff1f1f" layoutX="721.0" layoutY="253.0" onMouseClicked="#clickRed" radius="44.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="click" fill="#000000" layoutX="0.0" layoutY="0.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
          </children></AnchorPane>
       <Button fx:id="newGameBtn" layoutX="160.0" layoutY="33.0" mnemonicParsing="false" onAction="#countdown" text="Nová hra" />
       <Slider fx:id="difficultySlider" blockIncrement="2.0" layoutX="254.0" layoutY="40.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="122.0" showTickLabels="true" showTickMarks="true" value="1.0" />

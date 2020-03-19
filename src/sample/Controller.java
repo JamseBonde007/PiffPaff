@@ -29,7 +29,7 @@ public class Controller {
     @FXML
     private AnchorPane arena;
     @FXML
-    private Circle blue, red;
+    private Circle blue, red, click;
 
     private int interval;
     private int level;
@@ -37,13 +37,11 @@ public class Controller {
     private float cyklus;
     private float setinterval;
     private boolean run = false;
-    private Timeline timeline;
-    private Timer timerGame = new Timer(), timerEnemy = new Timer();
+    private Timer timerGame = new Timer(), timerClick = new Timer(), timerPosition = new Timer();
 
 
     @FXML
     public void countdown() {
-
 
         time = 0;
         cyklus = 0;
@@ -60,6 +58,7 @@ public class Controller {
 
         setinterval = (float) r;
         level = (int) ((setinterval / 35) * 10);
+        enemy();
 
         interval = 6 * r;
 
@@ -71,7 +70,6 @@ public class Controller {
                 @Override
                 public void run() {
                     Platform.runLater(() -> {
-                        enemy(blue.getLayoutX(),blue.getLayoutY());
                         run = true;
                         cyklus = (float) (cyklus + 0.1);
                         time = (float) (time + 0.1);
@@ -92,6 +90,7 @@ public class Controller {
                             }else seconds = ""+interval % 60;
                             countdownLabel.setText("" + interval / 60 + ":" + seconds);
                             time = 0;
+
                         }
                     });
                 }
@@ -154,7 +153,7 @@ public class Controller {
             });
         }
     }
-
+    //pripocita skore hracovi
     @FXML
     public void clickRed() {
         if (run) {
@@ -163,7 +162,7 @@ public class Controller {
             player1Score.setText(String.valueOf(score));
         }
     }
-
+    //pripocita skore pc
     @FXML
     public void clickBlue() {
         if (run) {
@@ -172,23 +171,38 @@ public class Controller {
             player2Score.setText(String.valueOf(score));
         }
     }
-
-    public void enemy(double x, double y) {
-
+    private double x,y;
+    public void enemy() {
         if (!run) {
-            timerEnemy.scheduleAtFixedRate(new TimerTask() {
+            //ak sa kruhy pretinaju klikne na hraca + hybe s ciernym kruhom
+            timerClick.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
                     Platform.runLater(() -> {
-                        System.out.println("x="+x+" blueX="+blue.getLayoutX());
-                        if ((blue.getLayoutX() >= x-blue.getRadius() && blue.getLayoutX() <= x+blue.getRadius()) || (blue.getLayoutY() >= x-blue.getRadius() && blue.getLayoutY() <= x+blue.getRadius())){
-                            clickRed();
+                        click.setRadius(10);
+                        click.setLayoutX(x);
+                        click.setLayoutY(y);
+
+                        boolean intersects = Math.hypot(x-blue.getLayoutX(), y-blue.getLayoutY()) <= (click.getRadius() + blue.getRadius());//vzorec na zistenie ci sa kruhy pretinaju
+
+                        if (intersects){
+                            clickBlue();
                             System.out.println("klik");
                         }
-
                     });
                 }
             }, 1000, 150 * level);
+
+            //vracia poziciu hraca s delayom
+            timerPosition.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    Platform.runLater(()->{
+                        x = blue.getLayoutX();
+                        y = blue.getLayoutY();
+                    });
+                }
+            },2000, 150*level);
         }
     }
 

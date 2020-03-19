@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afcc90da-2205-448f-867e-93edf0550264" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$Delta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller$Delta.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PifPaf/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PifPaf/sample/sample.fxml" afterDir="false" />
@@ -80,6 +81,8 @@
       <workItem from="1584611851815" duration="144000" />
       <workItem from="1584612297478" duration="5443000" />
       <workItem from="1584619431577" duration="3526000" />
+      <workItem from="1584637697393" duration="555000" />
+      <workItem from="1584643067998" duration="2651000" />
     </task>
     <task id="LOCAL-00001" summary="teraz ty">
       <created>1584566708702</created>
