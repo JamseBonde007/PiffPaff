@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Top10Controller">
+   <children>
+      <Label layoutX="142.0" layoutY="25.0" prefHeight="53.0" prefWidth="117.0" text="Top 10">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ListView layoutX="15.0" layoutY="102.0" prefHeight="486.0" prefWidth="371.0" />
+   </children>
+</AnchorPane>
